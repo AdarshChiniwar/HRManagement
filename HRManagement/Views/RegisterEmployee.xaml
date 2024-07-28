@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRManagement.Views.RegisterEmployee" Background="Black"
+             Title="Register Employee">
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="LightBlue" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="BackgroundColor" Value="LightBlue" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="20" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Margin="25">
+            <Label Text="Fill Employee Details" TextColor="White" HorizontalOptions="Center"/>
+            <Entry Text="{Binding Id}" Placeholder="Unique Id" Keyboard="Numeric" />
+            <Entry Text="{Binding FirstName}" Placeholder="First Name"  />
+            <Entry Text="{Binding LastName}" Placeholder="Last Name"  />
+            <Entry Text="{Binding EmailId}" Placeholder="Email Id" Keyboard="Email"  />
+            <Entry Text="{Binding PhoneNumber}" Placeholder="Phone No" Keyboard="Numeric" />
+            <Entry Text="{Binding Salary}" Placeholder="Salary" Keyboard="Numeric" />
+            <Entry Text="{Binding Age}" Placeholder="Age" Keyboard="Numeric" />
+            <Entry Text="{Binding Address}" Placeholder="Address"  />
+            <Entry Text="{Binding Role}" Placeholder="Role"  />
+
+            <HorizontalStackLayout>
+                <Label Text="DOJ - " TextColor="White" HorizontalOptions="Start" VerticalOptions="Start"/>
+                <DatePicker  TextColor="LightBlue"  Date="{Binding DOJ}" VerticalOptions="Start"/>
+            </HorizontalStackLayout>
+
+
+
+            <Button x:Name="register" Text="Register" Command="{Binding RegisterCmd}"/>
+            <Button x:Name="edit" Text="Edit" Command="{Binding EditCmd}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

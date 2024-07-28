@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRManagement.Views.InterViewList" Background="Black"
+             Title="InterViewList">
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="TextColor" Value="LightBlue" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="BackgroundColor" Value="LightBlue" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="CornerRadius" Value="20" />
+        </Style>
+    </ContentPage.Resources>
+
+
+
+    <CollectionView ItemsSource="{Binding InterviewList}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame CornerRadius="20" Margin="10" HasShadow="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions >
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="2" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Id - " Grid.Row="0"  
+                                       TextColor="Black" 
+                                       FontSize="Body" 
+                                       FontAttributes="Bold"/>
+
+                            <Label Text="{Binding Id}" 
+                                          Grid.Column="2" 
+                                         TextColor="SkyBlue" 
+                                         FontSize="Body" 
+                                         FontAttributes="Bold"/>
+
+
+
+                            <Label Text="First Name - " Grid.Row="1"  
+          TextColor="Black" 
+          FontSize="Body" 
+          FontAttributes="Bold"/>
+
+                            <Label Text="{Binding FirstName}" 
+            Grid.Row="1" Grid.Column="2" 
+            TextColor="SkyBlue" 
+            FontSize="Body" 
+            FontAttributes="Bold"/>
+
+
+                            <Label Text="Last Name - " Grid.Row="2"  
+TextColor="Black" 
+FontSize="Body" 
+FontAttributes="Bold"/>
+
+                            <Label Text="{Binding LastName}" 
+  Grid.Row="2" Grid.Column="2" 
+  TextColor="SkyBlue" 
+  FontSize="Body" 
+  FontAttributes="Bold"/>
+
+
+                            <Label Text="EmailId - " Grid.Row="3"  
+TextColor="Black" 
+FontSize="Body" 
+FontAttributes="Bold"/>
+
+                            <Label Text="{Binding EmailId}" 
+  Grid.Row="3" Grid.Column="2" 
+  TextColor="SkyBlue" 
+  FontSize="Body" 
+  FontAttributes="Bold"/>
+
+
+                            <Label Text="Phone Number - " Grid.Row="4"  
+TextColor="Black" 
+FontSize="Body" 
+FontAttributes="Bold"/>
+
+                            <Label Text="{Binding PhoneNumber}" 
+  Grid.Row="4" Grid.Column="2" 
+  TextColor="SkyBlue" 
+  FontSize="Body" 
+  FontAttributes="Bold"/>
+
+                            <Label Text="Expected Salary - " Grid.Row="5"  
+TextColor="Black" 
+FontSize="Body" 
+FontAttributes="Bold"/>
+
+                            <Label Text="{Binding ExpectedSalary}" 
+  Grid.Row="5" Grid.Column="2" 
+  TextColor="SkyBlue" 
+  FontSize="Body" 
+  FontAttributes="Bold"/>
+
+                            <Label Text="Age - " Grid.Row="6"  
+TextColor="Black" 
+FontSize="Body" 
+FontAttributes="Bold"/>
+
+                            <Label Text="{Binding Age}" 
+  Grid.Row="6" Grid.Column="2" 
+  TextColor="SkyBlue" 
+  FontSize="Body" 
+  FontAttributes="Bold"/>
+
+                            <Label Text="Address - " Grid.Row="7"  
+TextColor="Black" 
+FontSize="Body" 
+FontAttributes="Bold"/>
+
+                            <Label Text="{Binding Address}" 
+  Grid.Row="7" Grid.Column="2" 
+  TextColor="SkyBlue" 
+  FontSize="Body" 
+  FontAttributes="Bold"/>
+
+                            <Label Text="Role - " Grid.Row="8"  
+TextColor="Black" 
+FontSize="Body" 
+FontAttributes="Bold"/>
+
+                            <Label Text="{Binding Role}" 
+  Grid.Row="8" Grid.Column="2" 
+  TextColor="SkyBlue" 
+  FontSize="Body" 
+  FontAttributes="Bold"/>
+
+                           
+
+                            <!--<Button CornerRadius="20"
+                                    Text="Edit" Grid.Row="10" 
+                                    Command="{Binding Source={RelativeSource Mode=FindAncestor,AncestorType={x:Type CollectionView}},Path=BindingContext.EditCmd}" 
+                                    CommandParameter="{Binding .}"
+                                    />-->
+
+                            <Button CornerRadius="20" BackgroundColor="Red"
+                                   Text="Delete" Grid.Row="10" Grid.Column="2"
+                                   CommandParameter="{Binding .}"
+                                   Command="{Binding Source={RelativeSource Mode=FindAncestor,AncestorType={x:Type CollectionView}},Path=BindingContext.DeleteCmd}" />
+                        </Grid>
+
+                    </Grid>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

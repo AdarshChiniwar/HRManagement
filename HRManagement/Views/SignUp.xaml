@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HRManagement.Views.SignUp" Background="Black" NavigationPage.HasNavigationBar="False"
+             Title="SignUp">
+    <Grid VerticalOptions="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Text="Sign Up" TextColor="White" FontSize="Large" 
+        FontAttributes="Bold" Margin="15" HorizontalOptions="Center"
+        />
+
+        <VerticalStackLayout  Grid.Row="1">
+            <Image Source="logo.png" HorizontalOptions="Center" VerticalOptions="Center"
+         HeightRequest="150" WidthRequest="150"/>
+            <Label Text="HR Management" TextColor="White" FontSize="Medium" 
+              FontAttributes="Bold" Margin="15" HorizontalOptions="Center"
+  />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="2" Spacing="50" Margin="20">
+            <Entry Placeholder="User Name"  Text="{Binding UserName, Mode=TwoWay}"
+               TextColor="LightBlue" />
+            <Entry Placeholder="Password" IsPassword="True"  Text="{Binding Password, Mode=TwoWay}"
+      TextColor="LightBlue" />
+            <Button Text="Sign Up" FontAttributes="Bold" TextColor="Black" BackgroundColor="LightBlue" 
+                CornerRadius="20" Command="{Binding SignUpCmd}"/>
+
+            <Label HorizontalOptions="Center" >
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Already have an account? Sign In" FontAttributes="Bold" TextColor="LightBlue">
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding SignInCmd}"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

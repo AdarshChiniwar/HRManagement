@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="HRManagement.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HRManagement"
+    Shell.FlyoutBehavior="Flyout" Shell.BackgroundColor="Black" FlyoutBackgroundColor="Black"
+    xmlns:pages="clr-namespace:HRManagement.Views"
+    Shell.ForegroundColor="LightBlue" 
+    Title="HRManagement">
+
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout WidthRequest="250" HeightRequest="50" Margin="5,10,5,10"
+               
+               HorizontalOptions="CenterAndExpand">
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="{Binding Title}" VerticalOptions="Center" TextColor="SkyBlue" FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+                <BoxView Margin="0,5,0,0" Background="LightGray" HeightRequest="1"/>
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout WidthRequest="250" HeightRequest="50" Margin="5,10,5,10"
+             HorizontalOptions="CenterAndExpand">
+                <HorizontalStackLayout Spacing="10">
+                    <Label Text="{Binding Text}" VerticalOptions="Center" TextColor="SkyBlue" FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+                <BoxView Margin="0,5,0,0" Background="LightGray" HeightRequest="1"/>
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    <Shell.FlyoutHeader>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="3"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <HorizontalStackLayout Margin="25,25,0,0">
+                <Label Text="Back" FontSize="16"  FontAttributes="Bold" TextColor="White" />
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer  Tapped="TapGestureRecognizer_Tapped"/>
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+            <Image HeightRequest="100" Grid.Row="2"  Source="logo.png" VerticalOptions="Center" HorizontalOptions="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+
+    <FlyoutItem Title="Register Employee">
+        <ShellContent Shell.TitleColor="LightBlue"
+                Title="Register Employee"
+                ContentTemplate="{DataTemplate pages:RegisterEmployee}"
+                Route="RegisterEmployee" />
+    </FlyoutItem>
+
+    <MenuItem Text="Employee List" Clicked="MenuItem_Clicked" CommandParameter="EmployeeList">
+        <!--<ShellContent Shell.TitleColor="LightBlue"
+             Title="Employee List"
+             ContentTemplate="{DataTemplate pages:EmployeeList}"
+             Route="EmployeeList" />-->
+    </MenuItem>
+
+    <MenuItem Text="Register Interview" Clicked="MenuItem_Clicked" CommandParameter="RegisterInterview">
+        <!--<ShellContent Shell.TitleColor="LightBlue"
+            Title="Employee List"
+            ContentTemplate="{DataTemplate pages:EmployeeList}"
+            Route="EmployeeList" />-->
+    </MenuItem>
+
+    <MenuItem Text="Interview List" Clicked="MenuItem_Clicked" CommandParameter="InterviewList">
+        <!--<ShellContent Shell.TitleColor="LightBlue"
+          Title="Employee List"
+          ContentTemplate="{DataTemplate pages:EmployeeList}"
+          Route="EmployeeList" />-->
+    </MenuItem>
+
+    <MenuItem Text="Logout" Clicked="MenuItem_Clicked" CommandParameter="Logout">
+        <!--<ShellContent Shell.TitleColor="LightBlue"
+        Title="Employee List"
+        ContentTemplate="{DataTemplate pages:EmployeeList}"
+        Route="EmployeeList" />-->
+    </MenuItem>
+
+    <!--<FlyoutItem Title="Register Interview">
+        <ShellContent Shell.TitleColor="LightBlue"
+             Title="Register Interview"
+             ContentTemplate="{DataTemplate pages:RegisterInterView}"
+             Route="RegisterInterView" />
+    </FlyoutItem>-->
+
+
+    <!--<FlyoutItem Title="Interview List">
+        <ShellContent Shell.TitleColor="LightBlue"
+             Title="Interview List"
+             ContentTemplate="{DataTemplate pages:InterViewList}"
+             Route="InterViewList" />
+    </FlyoutItem>-->
+
+
+</Shell>
